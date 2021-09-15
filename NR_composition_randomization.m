@@ -2,10 +2,10 @@ clear
 clc
 
 %% prepare the reference 
-FNN_UFDA=load('USDA_FNN_level3.csv');
-FNN_UFDA = double(logical(FNN_UFDA))';
-FNN_UFDA(:,5) = []; % remove water
-Food_distance = squareform(pdist(FNN_UFDA,'jaccard'));
+FNN_USDA=load('USDA_FNN_level3.csv');
+FNN_USDA = double(logical(FNN_USDA))';
+FNN_USDA(:,5) = []; % remove water
+Food_distance = squareform(pdist(FNN_USDA,'jaccard'));
 
 %% NR of DMAS
 NR_real=[];NR_Null1=[];NR_Null2=[];NR_Null3=[];
@@ -26,7 +26,7 @@ NR_real=[NR_real NR_DMAS./(FD_DMAS)];
 
 %% Null-composition-1
 Num_food=size(Food_DMAS,1);
-FNN_table_relabel=FNN_UFDA(randperm(7618,Num_food),:);
+FNN_table_relabel=FNN_USDA(randperm(7618,Num_food),:);
 FNN_table_relabel=FNN_table_relabel(:,sum(FNN_table_relabel,1)>0);
 Food_distance1 = squareform(pdist(FNN_table_relabel,'jaccard'));
 
