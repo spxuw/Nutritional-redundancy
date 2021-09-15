@@ -3,7 +3,7 @@ clc
 
 %% prepare the reference 
 FNN_USDA=load('USDA_FNN_level3.csv');
-FNN_USDA = double(logical(FNN_UFDA))';
+FNN_USDA = double(logical(FNN_USDA))';
 FNN_USDA(:,5) = []; % remove water
 Food_distance = squareform(pdist(FNN_USDA,'jaccard'));
 
