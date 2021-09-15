@@ -2,16 +2,16 @@ clear
 clc
 
 %% prepare the reference 
-FNN_UFDA=load('USDA_FNN_level3.csv');
-FNN_UFDA = double(logical(FNN_UFDA))';
-FNN_UFDA(:,5) = []; % remove water
-Food_distance = squareform(pdist(FNN_UFDA,'jaccard'));
+FNN_USDA=load('USDA_FNN_level3.csv');
+FNN_USDA = double(logical(FNN_UFDA))';
+FNN_USDA(:,5) = []; % remove water
+Food_distance = squareform(pdist(FNN_USDA,'jaccard'));
 
 %% FNN of null models
-FNN_table_NULL_1=Nullmodel_FNN(FNN_UFDA,1);
-FNN_table_NULL_2=Nullmodel_FNN(FNN_UFDA,2);
-FNN_table_NULL_3=Nullmodel_FNN(FNN_UFDA,3);
-FNN_table_NULL_4=Nullmodel_FNN(FNN_UFDA,4);
+FNN_table_NULL_1=Nullmodel_FNN(FNN_USDA,1);
+FNN_table_NULL_2=Nullmodel_FNN(FNN_USDA,2);
+FNN_table_NULL_3=Nullmodel_FNN(FNN_USDA,3);
+FNN_table_NULL_4=Nullmodel_FNN(FNN_USDA,4);
 
 Food_distance1 = squareform(pdist(FNN_table_NULL_1,'jaccard'));
 Food_distance2 = squareform(pdist(FNN_table_NULL_2,'jaccard'));
