@@ -29,7 +29,7 @@ Food_DMAS = Food_DMAS./repmat(sum(Food_DMAS,1),7618,1);
 s1=sum(logical(Food_DMAS),1);
 s1=find(s1<2);
 Food_DMAS(:,s1)=[];
-days(:,s1)=[];
+days(s1)=[];
 
 [FD_DMAS, ND_DMAS, NR_DMAS] = NDNR_Rao_q (Food_DMAS, Food_distance, 1);
 NR_real=[NR_real NR_DMAS./FD_DMAS];
